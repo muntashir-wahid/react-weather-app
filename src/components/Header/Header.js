@@ -11,7 +11,7 @@ const Header = (props) => {
   };
 
   return (
-    <div className="flex justify-center py-3">
+    <div className="flex justify-center py-3 mb-24">
       <input
         type="text"
         name="city"
