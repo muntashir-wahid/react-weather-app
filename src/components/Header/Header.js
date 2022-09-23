@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useRef } from "react";
 
-const Header = () => {
+const Header = (props) => {
+  const enterdCityRef = useRef("");
   const cityNameInputHandler = (event) => {
     if (event.key === "Enter") {
-      console.log(event.target.value);
+      const enteredCity = enterdCityRef.current.value;
+      props.onSubmitCity(enteredCity);
+      enterdCityRef.current.value = "";
     }
   };
 
@@ -12,9 +15,10 @@ const Header = () => {
       <input
         type="text"
         name="city"
-        placeholder="Some city..."
+        placeholder="Enter location..."
         className="text-white w-1/3 p-1 bg-transparent border border-white rounded-lg outline-none"
         onKeyUp={cityNameInputHandler}
+        ref={enterdCityRef}
       />
     </div>
   );
