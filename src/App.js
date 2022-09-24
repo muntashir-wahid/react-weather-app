@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import Header from "./components/Header/Header";
-import bgImage from "./assets/bg-image.jpg";
+
 import MainWeather from "./components/Weather/MainWeather/MainWeather";
 import WeatherDetails from "./components/Weather/WeatherDetails/WeatherDetails";
 
 // Background Image
 const backgroundImage = {
-  backgroundImage: `url(${bgImage})`,
+  backgroundImage: `url(${"./assets/bg-image.jpg"})`,
   backgroundPosition: "center",
   backgroundSize: "cover",
   backgroundRepeat: "no-repeat",
@@ -54,15 +54,16 @@ const App = () => {
     });
   }, []);
 
+  console.log(weatherData);
   return (
     <div style={backgroundImage} className="sm:h-screen h-100">
       <Header onSubmitCity={submitedCityHandler} />
       {weatherData.id && !isValidLocation && (
         <MainWeather temp={weatherData.main?.temp} city={weatherData?.name} />
       )}
-      {weatherData.id && !isValidLocation && (
+      {/* {weatherData.id && !isValidLocation && (
         <WeatherDetails weatherDetails={weatherData} />
-      )}
+      )} */}
       {isValidLocation && (
         <p className="text-center text-4xl text-white">{isValidLocation}</p>
       )}

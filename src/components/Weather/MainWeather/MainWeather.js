@@ -1,14 +1,16 @@
 import React from "react";
+import BasicWeatherInfo from "./BasicWeatherInfo";
+import OtherWeatherInfo from "./OtherWeatherInfo";
+import SunInfo from "./SunInfo";
+import WeatherCondition from "./WeatherCondition";
 
 const MainWeather = ({ temp, city }) => {
   return (
-    <section className="w-4/6 text-white mx-auto mb-24">
-      <div className="mb-4">
-        <h2 className="text-2xl sm:text-4xl">{city}</h2>
-      </div>
-      <div>
-        <h2 className="text-4xl sm:text-8xl font-semibold">{temp}&deg;C</h2>
-      </div>
+    <section className="max-w-lg  bg-gray-700 px-4 py-6 mb-24  mx-auto text-white rounded-2xl grid grid-cols-3 grid-rows-3">
+      <BasicWeatherInfo />
+      <OtherWeatherInfo />
+      <WeatherCondition />
+      <SunInfo />
     </section>
   );
 };
