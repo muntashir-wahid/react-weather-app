@@ -54,12 +54,12 @@ const App = () => {
     });
   }, []);
 
-  console.log(weatherData);
+  // console.log(weatherData);
   return (
-    <div style={backgroundImage} className="sm:h-screen h-100">
+    <div style={backgroundImage} className="">
       <Header onSubmitCity={submitedCityHandler} />
       {weatherData.id && !isValidLocation && (
-        <MainWeather temp={weatherData.main?.temp} city={weatherData?.name} />
+        <MainWeather weatherData={weatherData} />
       )}
       {/* {weatherData.id && !isValidLocation && (
         <WeatherDetails weatherDetails={weatherData} />
